@@ -1,0 +1,24 @@
+/* Location Flags & Icons for Indian Cities */
+
+.property-location-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: #2c5364;
+}
+
+.location-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.flag-in { background-color: #FF9933; color: white; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.8rem; font-weight: bold; }
+.flag-mh { background: linear-gradient(45deg, #FF6B35, #F7931E); color: white; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.75rem; }
+.flag-ka { background: linear-gradient(45deg, #00A651, #FFFFFF); color: #00A651; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.75rem; border: 1px solid #00A651; }
+.flag-hr { background: linear-gradient(45deg, #F01818, #00A651); color: white; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.75rem; }
+.flag-ga { background: linear-gradient(45deg, #FF6F00, #FFFFFF); color: #FF6F00; padding: 0.1rem 0.3rem; border-radius: 4px; font-size: 0.75rem; border: 1px solid #FF6F00; }
+
+/* Hover effects */
+.property-card:hover .location-icon { transform: scale(1.1); }
+.property-location-flag:hover { opacity: 0.8; }

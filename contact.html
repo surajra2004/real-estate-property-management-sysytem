@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Elite Properties</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+<div class="logo">Real Estate Property</div>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Contact Hero -->
+<section class="hero" style="height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1920&h=600&fit=crop'); background-position: center; position: relative;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white;">
+      <h1 style="font-size: 3.5rem; text-shadow: 0 4px 8px rgba(0,0,0,0.5); margin-bottom: 1rem;">✨ Book Instantly</h1>
+      <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=300&fit=crop" alt="Luxury Home Keys" style="border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.4); max-width: 100%;">
+      <p style="font-size: 1.4rem; opacity: 0.95;">AI-Powered Matchmaking • 24hr Response Guaranteed</p>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section class="contact-section" style="padding: 4rem 0; background: #f8f9fa;">
+    <div class="container">
+      <div class="contact-container">
+        <h2 style="color: #203a43; margin-bottom: 1rem;">📩 Send Booking Request</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #28a745;">Attractive pre-formatted email sent to our team - Reply within 2 hours! 🚀</p>
+        <form id="contact-form">
+          <input type="text" id="contact-name" placeholder="👤 Your Full Name *" required>
+          <input type="email" id="contact-email" placeholder="📧 Your Email *" required>
+          <input type="text" id="contact-property" placeholder="🏘️ Property Name (e.g., Mumbai Seaface)" value="">
+          <textarea id="contact-message" placeholder="💬 Viewing Date Preference / Questions *" required></textarea>
+          <button type="button" id="contact-submit" onclick="sendBookingEmail()" style="background: linear-gradient(135deg, #28a745, #20c997); color: white; font-weight: bold; font-size: 1.1rem;">✨ Send Booking Email Now</button>
+        </form>
+
+        <!-- Success Modal -->
+        <div id="success-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 3000; align-items: center; justify-content: center;">
+          <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 3rem; border-radius: 20px; max-width: 450px; text-align: center; box-shadow: 0 20px 40px rgba(40,167,69,0.4);">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+            <h2>Booking Email Sent! 🎉</h2>
+            <p style="font-size: 1.1rem;">Your attractive booking request has been sent to our team.<br>Expect reply within 2 hours! ⏰</p>
+            <button onclick="openBookingEmail()" style="background: white; color: #28a745; border: none; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; cursor: pointer; margin: 1rem; font-size: 1.1rem;">📧 View in Outlook</button>
+            <button onclick="closeSuccessModal()" style="background: transparent; color: white; border: 2px solid white; padding: 1rem 2rem; border-radius: 50px; font-weight: bold; cursor: pointer; margin: 1rem; font-size: 1.1rem;">✕ Close</button>
+          </div>
+        </div>
+
+        <!-- Office Info Card -->
+        <div style="margin-top: 4rem; padding: 2.5rem; background: linear-gradient(135deg, white, #f8f9fa); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center;">
+          <h3 style="color: #203a43; margin-bottom: 1.5rem; font-size: 1.8rem;">📞 Contact Details</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div>
+              <p style="font-size: 1.5rem; color: #28a745; margin-bottom: 0.5rem;">📱 +91 98765 43210</p>
+              <p>WhatsApp / Call</p>
+            </div>
+            <div>
+              <p style="font-size: 1.2rem; color: #667eea;">info@eliteproperties.in</p>
+            </div>
+            <div>
+              <p>123 Elite Towers, Mumbai</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Elite Properties. All rights reserved. | Fast Response Guaranteed 🚀</p>
+    </div>
+  </footer>
+
+  <script>
+    function sendBookingEmail() {
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const property = document.getElementById('contact-property').value;
+      const message = document.getElementById('contact-message').value;
+      
+      if (name && email && message) {
+        const subject = encodeURIComponent(`🏠 URGENT Booking Request: ${property || 'Property Viewing'} - ${name}`);
+        const body = `🎉 PROPERTY BOOKING REQUEST 🎉
+
+👤 Customer: ${name}
+📧 Email: ${email}
+📍 Property: ${property || 'To be assigned'}
+📅 Request: ${message}
+⭐ Priority: High
+
+---
+📞 Contact Immediately: +91 98765 43210 (WhatsApp Ready)
+🌐 Elite Properties Team
+www.eliteproperties.in
+
+⚡ Reply within 2 hours REQUIRED ⚡`;
+
+        const mailto = `mailto:info@eliteproperties.com?subject=${subject}&body=${body}`;
+        document.getElementById('success-modal').style.display = 'flex';
+      } else {
+        alert('Please fill all starred (*) fields for booking! ⭐');
+      }
+    }
+
+    function openBookingEmail() {
+      // Re-trigger mailto
+      sendBookingEmail();
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('success-modal').style.display = 'none';
+      document.getElementById('contact-form').reset();
+    }
+
+    // Prefill from property modal
+    document.addEventListener('DOMContentLoaded', () => {
+      const bookingProperty = localStorage.getItem('bookingProperty');
+      if (bookingProperty) {
+        document.getElementById('contact-property').value = bookingProperty;
+        localStorage.removeItem('bookingProperty');
+      }
+      window.scrollTo(0, document.getElementById('contact-form').offsetTop - 100);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties - Elite Properties</title>
+<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="location-flags.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+<div class="logo">Real Estate Property</div>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="container">
+<div style="background: linear-gradient(135deg, #667eea, #764ba2); padding: 3rem; border-radius: 20px; margin-bottom: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(102,126,234,0.3);">
+  <h1 style="color: white; font-size: 3rem; margin-bottom: 0.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">🏠 Premium Properties</h1>
+  <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=400&fit=crop" alt="Luxury Properties Banner" style="width: 100%; max-width: 800px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); margin-top: 1rem;">
+  <p style="color: white; font-size: 1.3rem; opacity: 0.9;">India & USA • Verified Listings • Instant Bookings</p>
+</div>
+
+      <div class="search-container">
+        <input type="text" id="location-filter" class="search-input" list="location-suggestions" placeholder="Location (e.g., Mumbai, Miami)">
+
+<select id="type-filter" class="search-input">
+          <option value="">All Types</option>
+          <option value="House">House</option>
+          <option value="Condo">Condo</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Loft">Loft</option>
+          <option value="Cabin">Cabin</option>
+          <option value="Penthouse">Penthouse</option>
+        </select>
+
+        <input type="number" id="min-price" class="search-input" placeholder="Min Price (₹)" min="0">
+        <input type="number" id="max-price" class="search-input" placeholder="Max Price (₹)" min="0">
+        <select id="sort-select" class="search-input">
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name">Name</option>
+          <option value="location">Location</option>
+        </select>
+        <button id="search-btn" class="search-btn">Filter & Sort</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Properties Grid -->
+  <section class="properties-section">
+    <div class="container">
+      <div id="property-grid"></div>
+    </div>
+  </section>
+
+  <!-- Property Modal -->
+  <div id="property-modal">
+    <div id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <img id="modal-image" alt="Property">
+      <div class="modal-body">
+        <h2 id="modal-title"></h2>
+        <div class="modal-stats">
+          <span id="modal-price"></span>
+          <span id="modal-beds"></span> |
+          <span id="modal-baths"></span> |
+          <span id="modal-sqft"></span>
+        </div>
+        <p id="modal-location" class="property-location-flag"></p>
+        <div id="modal-map" class="modal-map"></div>
+
+        <div id="modal-description"></div>
+        <a href="contact.html" style="background: #667eea; color: white; border: none; padding: 1rem; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 1rem; display: inline-block; text-align: center; text-decoration: none;">Inquire Now</a>
+      </div>
+    </div>
+  </div>
+
+<script src="script-enhanced.js"></script>
+  <script>
+    // Page-specific init for properties page
+    document.addEventListener('DOMContentLoaded', () => {
+      if (document.getElementById('property-grid')) {
+        filterProperties();
+        document.getElementById('search-btn').onclick = filterProperties;
+        document.getElementById('location-filter').oninput = filterProperties;
+        document.getElementById('type-filter').onchange = filterProperties;
+        document.getElementById('min-price').oninput = filterProperties;
+        document.getElementById('max-price').oninput = filterProperties;
+      }
+      if (document.getElementById('modal-overlay')) {
+        document.getElementById('modal-overlay').onclick = closeModal;
+      }
+    });
+  </script>
+</body>
+</html>

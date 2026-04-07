@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elite Properties - Real Estate Dealing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="container">
+      <div class="logo">Real Estate Property</div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div>
+      <h1>Find Your Dream Home</h1>
+      <p>Discover premium properties across the USA with Elite Properties</p>
+      <a href="#properties" class="search-btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 8px; font-size: 1.2rem;">Browse Properties</a>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="container">
+      <div style="background: linear-gradient(135deg, #28a745, #20c997); padding: 2.5rem; border-radius: 20px; margin-bottom: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(40,167,69,0.3);">
+        <h2 style="color: white; margin-bottom: 0.5rem;">🔍 Find Your Dream Property</h2>
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1000&h=300&fit=crop" alt="Modern Luxury Home" style="width: 100%; max-width: 700px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2);">
+      </div>
+
+      <div class="search-container">
+        <input type="text" id="location-filter" class="search-input" list="location-suggestions" placeholder="Location (e.g., Mumbai, Miami)">
+
+        <select id="type-filter" class="search-input">
+          <option value="">All Types</option>
+          <option value="House">House</option>
+          <option value="Condo">Condo</option>
+          <option value="Apartment">Apartment</option>
+          <option value="Loft">Loft</option>
+          <option value="Cabin">Cabin</option>
+        </select>
+        <input type="number" id="min-price" class="search-input" placeholder="Min Price ($)" min="0">
+        <input type="number" id="max-price" class="search-input" placeholder="Max Price ($)" min="0">
+        <button id="search-btn" class="search-btn">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Properties Section -->
+  <section id="properties" class="properties-section">
+    <div class="container">
+      <h2 class="section-title">Featured Properties</h2>
+      <div id="property-grid"></div>
+    </div>
+  </section>
+
+  <!-- Property Modal -->
+  <div id="property-modal">
+    <div id="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <img id="modal-image" alt="Property">
+      <div class="modal-body">
+        <h2 id="modal-title"></h2>
+        <div class="modal-stats">
+          <span id="modal-price"></span>
+          <span id="modal-beds"></span> |
+          <span id="modal-baths"></span> |
+          <span id="modal-sqft"></span>
+        </div>
+        <p id="modal-location" class="property-location-flag"></p>
+        <div id="modal-map" class="modal-map"></div>
+
+        <div id="modal-description"></div>
+        <button onclick="submitContact()" style="background: #667eea; color: white; border: none; padding: 1rem; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 1rem;">Inquire Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-container">
+        <h2>Ready to Find Your Property?</h2>
+        <p style="margin-bottom: 2rem; font-size: 1.2rem;">Contact us for personalized assistance</p>
+        <form id="contact-form">
+          <input type="text" id="contact-name" placeholder="Your Name" required>
+          <input type="email" id="contact-email" placeholder="Your Email" required>
+          <textarea id="contact-message" placeholder="Your Message" required></textarea>
+          <button type="button" id="contact-submit" onclick="submitContact()">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Elite Properties. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script-clean.js"></script>
+</body>
+</html>
